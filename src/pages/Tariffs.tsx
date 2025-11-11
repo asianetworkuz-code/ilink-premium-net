@@ -55,7 +55,7 @@ const Tariffs = () => {
               {t('footer.description')}
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {tariffs.map((tariff, index) => (
                 <TariffCard key={index} {...tariff} />
               ))}

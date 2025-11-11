@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { NavLink } from "@/components/NavLink";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Wifi, Search, User } from "lucide-react";
+import { Search, User } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Header = () => {
   const { language, setLanguage, t } = useLanguage();
@@ -11,11 +12,8 @@ const Header = () => {
       <div className="container mx-auto">
         <div className="flex h-20 items-center justify-between px-4">
           {/* Logo */}
-          <NavLink to="/" className="flex items-center gap-2 text-2xl font-bold text-primary">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-blue-600">
-              <Wifi className="h-6 w-6 text-primary-foreground" />
-            </div>
-            <span className="hidden md:block">iLink</span>
+          <NavLink to="/" className="flex items-center gap-2">
+            <img src={logo} alt="iLink by Asia Network" className="h-12 md:h-14" />
           </NavLink>
 
           {/* Navigation */}
@@ -89,9 +87,11 @@ const Header = () => {
             </Button>
 
             {/* Cabinet Button */}
-            <Button className="gap-2">
-              <User className="h-4 w-4" />
-              <span className="hidden md:inline">{t('nav.cabinet')}</span>
+            <Button className="gap-2" asChild>
+              <a href="https://cabinet.ilink.uz/" target="_blank" rel="noopener noreferrer">
+                <User className="h-4 w-4" />
+                <span className="hidden md:inline">{t('nav.cabinet')}</span>
+              </a>
             </Button>
           </div>
         </div>
