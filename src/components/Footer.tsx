@@ -1,6 +1,7 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { NavLink } from "@/components/NavLink";
-import { Wifi, Instagram, Facebook, Linkedin, Send } from "lucide-react";
+import { Instagram, Facebook, Linkedin, Send } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -9,17 +10,13 @@ const Footer = () => {
     <footer className="border-t bg-secondary/30">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-          {/* Logo & Description */}
+          {/* Logo */}
           <div>
-            <div className="flex items-center gap-2 text-xl font-bold text-primary mb-4">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-blue-600">
-                <Wifi className="h-6 w-6 text-primary-foreground" />
-              </div>
-              <span>iLink by Asia Network</span>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              {t('footer.description')}
-            </p>
+            <img 
+              src={logo} 
+              alt="iLink by Asia Network" 
+              className="h-16 transition-opacity hover:opacity-90"
+            />
           </div>
 
           {/* Navigation */}
