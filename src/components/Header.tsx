@@ -17,12 +17,12 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-all">
       <div className="container mx-auto">
-        <div className="flex h-20 items-center justify-between px-4">
+        <div className="flex h-20 items-center justify-between px-2 lg:px-4">
           {/* Logo */}
-          <NavLink to="/" className="flex items-center gap-2">
-            <img src={logo} alt="iLink by Asia Network" className="h-12 md:h-14" />
+          <NavLink to="/" className="flex items-center gap-2 transition-transform hover:scale-105">
+            <img src={logo} alt="iLink by Asia Network" className="h-10 md:h-14" />
           </NavLink>
 
           {/* Desktop Navigation */}
@@ -99,7 +99,7 @@ const Header = () => {
             </Button>
             
             {/* Mobile Cabinet Button */}
-            <Button className="gap-2 lg:hidden rounded-full" asChild>
+            <Button className="gap-2 lg:hidden rounded-full px-4 py-2 h-10 transition-all hover:scale-105 shadow-sm" asChild>
               <a href="https://cabinet.ilink.uz/" target="_blank" rel="noopener noreferrer">
                 <User className="h-4 w-4" />
                 <span className="text-sm font-semibold">Kirish</span>
@@ -109,53 +109,53 @@ const Header = () => {
             {/* Mobile Menu */}
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="lg:hidden">
+                <Button variant="ghost" size="icon" className="lg:hidden transition-all hover:scale-110 hover:bg-secondary/80">
                   <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+              <SheetContent side="right" className="w-[300px] sm:w-[400px] animate-slide-in-right">
                 <SheetHeader>
                   <SheetTitle>
                     <img src={logo} alt="iLink by Asia Network" className="h-12" />
                   </SheetTitle>
                 </SheetHeader>
-                <nav className="flex flex-col gap-4 mt-8">
+                <nav className="flex flex-col gap-2 mt-8">
                   <NavLink 
                     to="/" 
-                    className="text-base font-medium text-muted-foreground transition-colors hover:text-primary py-2"
-                    activeClassName="text-primary"
+                    className="text-base font-medium text-muted-foreground transition-all hover:text-primary hover:translate-x-1 py-3 px-2 rounded-lg hover:bg-secondary/50"
+                    activeClassName="text-primary bg-secondary/30"
                     onClick={() => setIsOpen(false)}
                   >
                     {t('nav.home')}
                   </NavLink>
                   <NavLink 
                     to="/about" 
-                    className="text-base font-medium text-muted-foreground transition-colors hover:text-primary py-2"
-                    activeClassName="text-primary"
+                    className="text-base font-medium text-muted-foreground transition-all hover:text-primary hover:translate-x-1 py-3 px-2 rounded-lg hover:bg-secondary/50"
+                    activeClassName="text-primary bg-secondary/30"
                     onClick={() => setIsOpen(false)}
                   >
                     {t('nav.about')}
                   </NavLink>
                   <NavLink 
                     to="/services" 
-                    className="text-base font-medium text-muted-foreground transition-colors hover:text-primary py-2"
-                    activeClassName="text-primary"
+                    className="text-base font-medium text-muted-foreground transition-all hover:text-primary hover:translate-x-1 py-3 px-2 rounded-lg hover:bg-secondary/50"
+                    activeClassName="text-primary bg-secondary/30"
                     onClick={() => setIsOpen(false)}
                   >
                     {t('nav.services')}
                   </NavLink>
                   <NavLink 
                     to="/tariffs" 
-                    className="text-base font-medium text-muted-foreground transition-colors hover:text-primary py-2"
-                    activeClassName="text-primary"
+                    className="text-base font-medium text-muted-foreground transition-all hover:text-primary hover:translate-x-1 py-3 px-2 rounded-lg hover:bg-secondary/50"
+                    activeClassName="text-primary bg-secondary/30"
                     onClick={() => setIsOpen(false)}
                   >
                     {t('nav.tariffs')}
                   </NavLink>
                   <NavLink 
                     to="/contact" 
-                    className="text-base font-medium text-muted-foreground transition-colors hover:text-primary py-2"
-                    activeClassName="text-primary"
+                    className="text-base font-medium text-muted-foreground transition-all hover:text-primary hover:translate-x-1 py-3 px-2 rounded-lg hover:bg-secondary/50"
+                    activeClassName="text-primary bg-secondary/30"
                     onClick={() => setIsOpen(false)}
                   >
                     {t('nav.contacts')}
