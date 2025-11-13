@@ -65,7 +65,7 @@ const Header = () => {
           </nav>
 
           {/* Right Actions */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4 lg:gap-3">
             {/* Language Switcher - Desktop Only */}
             <div className="hidden lg:flex items-center gap-1 rounded-lg bg-secondary p-1">
               <button
