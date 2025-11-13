@@ -66,11 +66,11 @@ const Header = () => {
 
           {/* Right Actions */}
           <div className="flex items-center gap-3">
-            {/* Language Switcher */}
-            <div className="flex items-center gap-1 rounded-lg bg-secondary p-1">
+            {/* Language Switcher - Desktop Only */}
+            <div className="hidden lg:flex items-center gap-1 rounded-lg bg-secondary p-1">
               <button
                 onClick={() => setLanguage('uz')}
-                className={`px-2 md:px-3 py-1 text-xs md:text-sm font-medium rounded-md transition-all ${
+                className={`px-3 py-1 text-sm font-medium rounded-md transition-all ${
                   language === 'uz'
                     ? 'bg-background text-primary shadow-sm'
                     : 'text-muted-foreground hover:text-foreground'
@@ -80,7 +80,7 @@ const Header = () => {
               </button>
               <button
                 onClick={() => setLanguage('ru')}
-                className={`px-2 md:px-3 py-1 text-xs md:text-sm font-medium rounded-md transition-all ${
+                className={`px-3 py-1 text-sm font-medium rounded-md transition-all ${
                   language === 'ru'
                     ? 'bg-background text-primary shadow-sm'
                     : 'text-muted-foreground hover:text-foreground'
@@ -90,11 +90,27 @@ const Header = () => {
               </button>
             </div>
 
+            {/* Desktop Cabinet Button */}
+            <Button className="gap-2 hidden lg:flex" asChild>
+              <a href="https://cabinet.ilink.uz/" target="_blank" rel="noopener noreferrer">
+                <User className="h-4 w-4" />
+                <span>{t('nav.cabinet')}</span>
+              </a>
+            </Button>
+            
+            {/* Mobile Cabinet Button */}
+            <Button className="gap-2 lg:hidden rounded-full" asChild>
+              <a href="https://cabinet.ilink.uz/" target="_blank" rel="noopener noreferrer">
+                <User className="h-4 w-4" />
+                <span className="text-sm font-semibold">Kirish</span>
+              </a>
+            </Button>
+
             {/* Mobile Menu */}
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon" className="lg:hidden">
-                  <Menu className="h-5 w-5" />
+                  <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[400px]">
@@ -144,24 +160,42 @@ const Header = () => {
                   >
                     {t('nav.contacts')}
                   </NavLink>
+                  
+                  {/* Language Switcher in Mobile Menu */}
+                  <div className="flex items-center gap-2 pt-4 border-t mt-4">
+                    <span className="text-sm text-muted-foreground">Til / Язык:</span>
+                    <div className="flex items-center gap-1 rounded-lg bg-secondary p-1">
+                      <button
+                        onClick={() => {
+                          setLanguage('uz');
+                          setIsOpen(false);
+                        }}
+                        className={`px-3 py-1 text-sm font-medium rounded-md transition-all ${
+                          language === 'uz'
+                            ? 'bg-background text-primary shadow-sm'
+                            : 'text-muted-foreground hover:text-foreground'
+                        }`}
+                      >
+                        UZ
+                      </button>
+                      <button
+                        onClick={() => {
+                          setLanguage('ru');
+                          setIsOpen(false);
+                        }}
+                        className={`px-3 py-1 text-sm font-medium rounded-md transition-all ${
+                          language === 'ru'
+                            ? 'bg-background text-primary shadow-sm'
+                            : 'text-muted-foreground hover:text-foreground'
+                        }`}
+                      >
+                        RU
+                      </button>
+                    </div>
+                  </div>
                 </nav>
               </SheetContent>
             </Sheet>
-
-            {/* Cabinet Button */}
-            <Button className="gap-2 hidden md:flex" asChild>
-              <a href="https://cabinet.ilink.uz/" target="_blank" rel="noopener noreferrer">
-                <User className="h-4 w-4" />
-                <span>{t('nav.cabinet')}</span>
-              </a>
-            </Button>
-            
-            {/* Mobile Cabinet Button */}
-            <Button size="icon" className="lg:hidden" asChild>
-              <a href="https://cabinet.ilink.uz/" target="_blank" rel="noopener noreferrer">
-                <User className="h-4 w-4" />
-              </a>
-            </Button>
           </div>
         </div>
       </div>
