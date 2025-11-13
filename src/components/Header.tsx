@@ -1,11 +1,20 @@
 import { Button } from "@/components/ui/button";
 import { NavLink } from "@/components/NavLink";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Search, User } from "lucide-react";
+import { User, Menu, X } from "lucide-react";
 import logo from "@/assets/logo.png";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { useState } from "react";
 
 const Header = () => {
   const { language, setLanguage, t } = useLanguage();
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -16,7 +25,7 @@ const Header = () => {
             <img src={logo} alt="iLink by Asia Network" className="h-12 md:h-14" />
           </NavLink>
 
-          {/* Navigation */}
+          {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
             <NavLink 
               to="/" 
@@ -56,12 +65,12 @@ const Header = () => {
           </nav>
 
           {/* Right Actions */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
             {/* Language Switcher */}
             <div className="flex items-center gap-1 rounded-lg bg-secondary p-1">
               <button
                 onClick={() => setLanguage('uz')}
-                className={`px-3 py-1 text-sm font-medium rounded-md transition-all ${
+                className={`px-2 md:px-3 py-1 text-xs md:text-sm font-medium rounded-md transition-all ${
                   language === 'uz'
                     ? 'bg-background text-primary shadow-sm'
                     : 'text-muted-foreground hover:text-foreground'
@@ -71,7 +80,7 @@ const Header = () => {
               </button>
               <button
                 onClick={() => setLanguage('ru')}
-                className={`px-3 py-1 text-sm font-medium rounded-md transition-all ${
+                className={`px-2 md:px-3 py-1 text-xs md:text-sm font-medium rounded-md transition-all ${
                   language === 'ru'
                     ? 'bg-background text-primary shadow-sm'
                     : 'text-muted-foreground hover:text-foreground'
@@ -81,16 +90,76 @@ const Header = () => {
               </button>
             </div>
 
-            {/* Search Icon */}
-            <Button variant="ghost" size="icon" className="hidden md:flex">
-              <Search className="h-5 w-5" />
-            </Button>
+            {/* Mobile Menu */}
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className="lg:hidden">
+                  <Menu className="h-5 w-5" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+                <SheetHeader>
+                  <SheetTitle>
+                    <img src={logo} alt="iLink by Asia Network" className="h-12" />
+                  </SheetTitle>
+                </SheetHeader>
+                <nav className="flex flex-col gap-4 mt-8">
+                  <NavLink 
+                    to="/" 
+                    className="text-base font-medium text-muted-foreground transition-colors hover:text-primary py-2"
+                    activeClassName="text-primary"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {t('nav.home')}
+                  </NavLink>
+                  <NavLink 
+                    to="/about" 
+                    className="text-base font-medium text-muted-foreground transition-colors hover:text-primary py-2"
+                    activeClassName="text-primary"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {t('nav.about')}
+                  </NavLink>
+                  <NavLink 
+                    to="/services" 
+                    className="text-base font-medium text-muted-foreground transition-colors hover:text-primary py-2"
+                    activeClassName="text-primary"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {t('nav.services')}
+                  </NavLink>
+                  <NavLink 
+                    to="/tariffs" 
+                    className="text-base font-medium text-muted-foreground transition-colors hover:text-primary py-2"
+                    activeClassName="text-primary"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {t('nav.tariffs')}
+                  </NavLink>
+                  <NavLink 
+                    to="/contact" 
+                    className="text-base font-medium text-muted-foreground transition-colors hover:text-primary py-2"
+                    activeClassName="text-primary"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {t('nav.contacts')}
+                  </NavLink>
+                </nav>
+              </SheetContent>
+            </Sheet>
 
             {/* Cabinet Button */}
-            <Button className="gap-2" asChild>
+            <Button className="gap-2 hidden md:flex" asChild>
               <a href="https://cabinet.ilink.uz/" target="_blank" rel="noopener noreferrer">
                 <User className="h-4 w-4" />
-                <span className="hidden md:inline">{t('nav.cabinet')}</span>
+                <span>{t('nav.cabinet')}</span>
+              </a>
+            </Button>
+            
+            {/* Mobile Cabinet Button */}
+            <Button size="icon" className="lg:hidden" asChild>
+              <a href="https://cabinet.ilink.uz/" target="_blank" rel="noopener noreferrer">
+                <User className="h-4 w-4" />
               </a>
             </Button>
           </div>
