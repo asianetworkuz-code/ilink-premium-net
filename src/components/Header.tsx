@@ -97,20 +97,12 @@ const Header = () => {
                 <span>{t('nav.cabinet')}</span>
               </a>
             </Button>
-            
-            {/* Mobile Cabinet Button */}
-            <Button className="gap-2 lg:hidden rounded-full px-4 py-2 h-10 transition-all hover:scale-105 shadow-sm" asChild>
-              <a href="https://cabinet.ilink.uz/" target="_blank" rel="noopener noreferrer">
-                <User className="h-4 w-4" />
-                <span className="text-sm font-semibold">Kirish</span>
-              </a>
-            </Button>
 
             {/* Mobile Menu */}
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="lg:hidden transition-all hover:scale-110 hover:bg-secondary/80">
-                  <Menu className="h-6 w-6" />
+                <Button variant="ghost" size="icon" className="lg:hidden transition-all hover:scale-110 hover:bg-secondary/80 h-12 w-12">
+                  <Menu className="h-7 w-7" />
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[400px] animate-slide-in-right">
@@ -120,6 +112,14 @@ const Header = () => {
                   </SheetTitle>
                 </SheetHeader>
                 <nav className="flex flex-col gap-2 mt-8">
+                  {/* Cabinet Button in Mobile Menu */}
+                  <Button className="gap-2 w-full justify-start mb-2" asChild>
+                    <a href="https://cabinet.ilink.uz/" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
+                      <User className="h-4 w-4" />
+                      <span>Kirish</span>
+                    </a>
+                  </Button>
+                  
                   <NavLink 
                     to="/" 
                     className="text-base font-medium text-muted-foreground transition-all hover:text-primary hover:translate-x-1 py-3 px-2 rounded-lg hover:bg-secondary/50"
