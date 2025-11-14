@@ -17,12 +17,12 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-all">
-      <div className="container mx-auto">
-        <div className="flex h-20 items-center justify-between px-2 lg:px-4">
+    <header className="fixed top-0 z-50 w-full border-b border-border/40 bg-background/70 backdrop-blur-xl supports-[backdrop-filter]:bg-background/70 transition-all shadow-sm">
+      <div className="container mx-auto px-4 lg:px-6">
+        <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <NavLink to="/" className="flex items-center gap-2 transition-transform hover:scale-105">
-            <img src={logo} alt="iLink by Asia Network" className="h-10 md:h-14" />
+          <NavLink to="/" className="flex items-center gap-2 transition-transform hover:scale-105 -ml-2">
+            <img src={logo} alt="iLink by Asia Network" className="h-12 md:h-14" />
           </NavLink>
 
           {/* Desktop Navigation */}
@@ -101,8 +101,8 @@ const Header = () => {
             {/* Mobile Menu */}
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="lg:hidden transition-all hover:scale-110 hover:bg-secondary/80 h-12 w-12">
-                  <Menu className="h-7 w-7" />
+                <Button variant="ghost" size="icon" className="lg:hidden transition-all hover:scale-110 hover:bg-secondary/80 h-12 w-12 -mr-2">
+                  <Menu className="h-8 w-8" />
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[400px] animate-slide-in-right">
