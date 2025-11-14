@@ -101,8 +101,12 @@ const Header = () => {
             {/* Mobile Menu */}
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="lg:hidden transition-all hover:scale-110 hover:bg-secondary/80 h-12 w-12 -mr-2">
-                  <Menu className="h-8 w-8" />
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  className="lg:hidden h-12 w-12 -mr-2 rounded-full bg-background/40 backdrop-blur-sm border border-border/30 shadow-[0_2px_8px_rgba(0,0,0,0.08),inset_0_1px_2px_rgba(255,255,255,0.1)] transition-all duration-300 hover:scale-105 hover:shadow-[0_4px_12px_rgba(0,0,0,0.12),inset_0_1px_2px_rgba(255,255,255,0.15)] hover:bg-background/60 active:scale-95"
+                >
+                  <Menu className="h-6 w-6 text-foreground/80" strokeWidth={1.5} />
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[400px] animate-slide-in-right">
