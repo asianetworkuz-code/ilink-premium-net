@@ -38,21 +38,21 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-primary via-blue-600 to-blue-800 pt-16 pb-12 md:pb-20">
-      {/* Dynamic Rotating Background Shape */}
+    <section className="relative overflow-hidden bg-[#0066CC] pt-16 pb-12 md:pb-20">
+      {/* Dynamic Rotating Background Shapes - Subtle decorative elements */}
       <div 
-        className="absolute top-1/4 -right-1/4 w-[600px] h-[600px] rounded-[45%] opacity-30 blur-3xl"
+        className="absolute top-0 right-0 w-[800px] h-[800px] rounded-[45%] opacity-10 blur-3xl"
         style={{
-          background: 'linear-gradient(135deg, rgba(96, 165, 250, 0.4), rgba(139, 92, 246, 0.4), rgba(59, 130, 246, 0.4))',
-          transform: `rotate(${rotation}deg)`,
+          background: 'linear-gradient(135deg, rgba(96, 165, 250, 0.6), rgba(139, 92, 246, 0.4))',
+          transform: `rotate(${rotation}deg) translateX(20%)`,
           transition: 'transform 0.05s linear',
         }}
       />
       <div 
-        className="absolute -bottom-1/4 -left-1/4 w-[500px] h-[500px] rounded-[40%] opacity-20 blur-3xl"
+        className="absolute bottom-0 left-0 w-[600px] h-[600px] rounded-[40%] opacity-10 blur-3xl"
         style={{
-          background: 'linear-gradient(225deg, rgba(34, 211, 238, 0.3), rgba(59, 130, 246, 0.3))',
-          transform: `rotate(${-rotation}deg)`,
+          background: 'linear-gradient(225deg, rgba(34, 211, 238, 0.5), rgba(59, 130, 246, 0.3))',
+          transform: `rotate(${-rotation}deg) translateX(-20%)`,
           transition: 'transform 0.05s linear',
         }}
       />
@@ -63,7 +63,7 @@ const HeroSection = () => {
             <CarouselContent>
               {slides.map((image, index) => (
                 <CarouselItem key={index}>
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center p-8 md:p-12 lg:p-16 bg-gradient-to-br from-cyan-400/90 via-blue-400/80 to-blue-300/70">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center p-8 md:p-12 lg:p-16 bg-gradient-to-br from-[#4A9FD8] via-[#6BB4E5] to-[#8BC9F2]">
                     <div className="text-white">
                       <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-6 leading-tight">
                         {t('hero.title')}
@@ -71,7 +71,7 @@ const HeroSection = () => {
                       <p className="text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 text-white/95">
                         {t('hero.subtitle')}
                       </p>
-                      <Button size="lg" variant="secondary" className="rounded-xl px-8">
+                      <Button size="lg" variant="secondary" className="rounded-xl px-8 bg-white text-primary hover:bg-white/90">
                         {t('hero.cta')}
                       </Button>
                     </div>
