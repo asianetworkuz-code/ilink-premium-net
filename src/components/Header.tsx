@@ -17,7 +17,7 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 z-50 w-full border-b border-border/40 bg-background/70 backdrop-blur-xl supports-[backdrop-filter]:bg-background/70 transition-all shadow-sm">
+    <header className="fixed top-0 z-50 w-full border-b border-border/40 bg-primary transition-all shadow-sm">
       <div className="container mx-auto px-4 lg:px-6">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
