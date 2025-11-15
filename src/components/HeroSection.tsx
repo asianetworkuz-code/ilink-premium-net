@@ -38,7 +38,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-primary via-blue-600 to-blue-800 pt-16">
+    <section className="relative overflow-hidden bg-gradient-to-br from-primary via-blue-600 to-blue-800 pt-16 pb-12 md:pb-20">
       {/* Dynamic Rotating Background Shape */}
       <div 
         className="absolute top-1/4 -right-1/4 w-[600px] h-[600px] rounded-[45%] opacity-30 blur-3xl"
@@ -57,38 +57,40 @@ const HeroSection = () => {
         }}
       />
       
-      <div className="container mx-auto px-4 py-20 md:py-32 relative z-10">
-        <Carousel setApi={setApi} opts={{ loop: true }} className="w-full">
-          <CarouselContent>
-            {slides.map((image, index) => (
-              <CarouselItem key={index}>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                  <div className="text-white">
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                      {t('hero.title')}
-                    </h1>
-                    <p className="text-xl md:text-2xl mb-8 text-blue-100">
-                      {t('hero.subtitle')}
-                    </p>
-                    <Button size="lg" variant="secondary" className="rounded-xl px-8">
-                      {t('hero.cta')}
-                    </Button>
-                  </div>
+      <div className="container mx-auto px-4 py-12 md:py-20 relative z-10 flex items-center justify-center">
+        <div className="w-full max-w-6xl">
+          <Carousel setApi={setApi} opts={{ loop: true }} className="w-full rounded-[3rem] md:rounded-[4rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.3)]">
+            <CarouselContent>
+              {slides.map((image, index) => (
+                <CarouselItem key={index}>
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center p-8 md:p-12 lg:p-16 bg-gradient-to-br from-cyan-400/90 via-blue-400/80 to-blue-300/70">
+                    <div className="text-white">
+                      <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-6 leading-tight">
+                        {t('hero.title')}
+                      </h1>
+                      <p className="text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 text-white/95">
+                        {t('hero.subtitle')}
+                      </p>
+                      <Button size="lg" variant="secondary" className="rounded-xl px-8">
+                        {t('hero.cta')}
+                      </Button>
+                    </div>
 
-                  <div className="relative hidden lg:block">
-                    <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl">
-                      <img 
-                        src={image} 
-                        alt="Data Center" 
-                        className="w-full h-full object-cover"
-                      />
+                    <div className="relative w-full">
+                      <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl">
+                        <img 
+                          src={image} 
+                          alt="Data Center" 
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
                     </div>
                   </div>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+        </div>
       </div>
     </section>
   );
