@@ -38,7 +38,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-[#0066CC] pt-16 pb-12 md:pb-20">
+    <section className="relative overflow-hidden bg-[#0066CC] pt-16 pb-32 md:pb-40">
       {/* Dynamic Rotating Background Shapes - Subtle decorative elements */}
       <div 
         className="absolute top-0 right-0 w-[800px] h-[800px] rounded-[45%] opacity-10 blur-3xl"
